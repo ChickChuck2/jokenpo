@@ -85,7 +85,7 @@ class Janela(QMainWindow):
         ##Button Confirm##
         self.botao.setStyleSheet(open(default).read())
 
-        #!!!!!Quando quiser adicionar um style, coloque aqui
+        #!!!!!Quando quiser adicionar um style, coloque aqui em cima
         
         #!!Important!!
         self.show()
