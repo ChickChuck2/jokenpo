@@ -1,20 +1,10 @@
 import sys
-from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
 from PyQt5 import QtGui
-from pygame import mixer
 
-
-mixer.init()
-
-data = QDate.currentDate()
-print(data.toString(Qt.ISODate))
-print(data.toString(Qt.DefaultLocaleLongDate))
-
-horas = QTime.currentTime()
-print(horas.toString(Qt.DefaultLocaleLongDate))
+# PyQt5 tem sua propia função de data e horas
 
 #>Variaveis<#
 
@@ -22,8 +12,6 @@ default = 'style.css'
 
 width = 800
 height = 600
-
-palavras = []
 
 class Janela(QMainWindow):
     def __init__(self):
@@ -85,7 +73,7 @@ class Janela(QMainWindow):
         ##Button Confirm##
         self.botao.setStyleSheet(open(default).read())
 
-        #!!!!!Quando quiser adicionar um style, coloque aqui
+        #!!!!!Quando quiser adicionar um style, coloque aqui em cima
         
         #!!Important!!
         self.show()
@@ -102,9 +90,8 @@ df = """
     }
 """
 
-
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
 
     # aqui você coloca o estilo da janela
     app.setStyleSheet(df)
