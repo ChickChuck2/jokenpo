@@ -1,17 +1,10 @@
 import sys
-from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
 from PyQt5 import QtGui
 
-
-data = QDate.currentDate()
-print(data.toString(Qt.ISODate))
-print(data.toString(Qt.DefaultLocaleLongDate))
-
-horas = QTime.currentTime()
-print(horas.toString(Qt.DefaultLocaleLongDate))
+# PyQt5 tem sua propia função de data e horas
 
 #>Variaveis<#
 
@@ -98,7 +91,7 @@ df = """
 """
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    app = QApplication(sys.argv)
 
     # aqui você coloca o estilo da janela
     app.setStyleSheet(df)
