@@ -1,0 +1,49 @@
+Olá, CSS é um Editor de estilo
+e vou te mostrar como usar CSS em PyQt5
+
+
+1 - Primeiro
+Você quer adicionar estilo em Um BOTÃO
+
+self.botao = QPushButton("button", self)
+
+
+Podemos ver, que em cada botão que você cria tem 
+"QPushButton"
+
+Você vai usar isso em um arquivo CSS
+
+por exemplo
+
+QPushButton {
+    background-color: red;
+}
+
+Aqui em cima, vemos que eu falei para o botão (QPushButton) ter a cor de fundo vermelha
+
+isso serve para qualquer coisa, siga esse exemplo
+
+self.text = QLabel("TEXTO", self)
+
+você viu que o de texto é QLabel, ai você faz isso
+
+QLabel {
+    background-color: blue;
+}
+
+Existe diverças funções para adicionar em um CSS
+
+background-image
+background
+background-color
+color
+
+border
+text-shadow
+
+Etc..
+qualquer coisa, você pode dar uma pesquisada
+por exemplo
+
+Eu quero deixar esse background com cores gradient
+ai você vê como faz
