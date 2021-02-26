@@ -4,10 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5 import QtGui
-from pygame import mixer
 
-
-mixer.init()
 
 data = QDate.currentDate()
 print(data.toString(Qt.ISODate))
@@ -22,8 +19,6 @@ default = 'style.css'
 
 width = 800
 height = 600
-
-palavras = []
 
 class Janela(QMainWindow):
     def __init__(self):
@@ -101,7 +96,6 @@ df = """
         background-color: green;
     }
 """
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
