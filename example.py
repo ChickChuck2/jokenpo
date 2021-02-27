@@ -3,11 +3,13 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
 from PyQt5 import QtGui
+import random
+
+Lista = ["Lista", "baka", "relogio", "Vidro"]
 
 # PyQt5 tem sua propia função de data e horas
 
 #>Variaveis<#
-
 default = 'style.css'
 
 width = 800
@@ -17,6 +19,7 @@ class Janela(QMainWindow):
     def __init__(self):
         super(Janela, self).__init__()
 
+
         #<!>Main<!>#
         #Titulo da janela
         self.setWindowTitle("Example")
@@ -25,15 +28,17 @@ class Janela(QMainWindow):
         #tamanho da janela
         self.setGeometry(0,0,width,height)
 
+        escolha = random.choice(Lista)
+
         # <--- Text --->
         #cria o texto (QLabel é texto)
-        self.text = QLabel("...", self)
+        self.texto1 = QLabel("MENSAGEM", self)
         #posição
-        self.text.move(390,460)
+        self.texto1.move(390,460)
         #redimencionamento
-        self.text.resize(200,30)
+        self.texto1.resize(200,30)
         #alinhamento
-        self.text.setAlignment(Qt.AlignLeft)
+        self.texto1.setAlignment(Qt.AlignLeft)
         # >--Fim do texto---<
         
         # <--- Image --->
@@ -44,7 +49,7 @@ class Janela(QMainWindow):
         #seleciona a imagem
         image.setPixmap(pixmap)
         #move ela
-        image.move(490,350)
+        image.move(0,0)
         #redimenciona
         image.resize(120,140)
         # >--- Fim da imagem ---<
@@ -81,7 +86,15 @@ class Janela(QMainWindow):
     #!@ Funções @!
 
     def click(self):
-        print("Função")
+        escolha = random.choice(Lista)
+        
+        # mudar texto (QLabel)
+        self.texto1.setText(escolha)
+
+        #mudar titulo
+        self.setWindowTitle(escolha)
+        #
+        print("adasd")
 
 # cor da janela em (CSS)
 df = """
