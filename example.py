@@ -1,5 +1,4 @@
 import sys
-from typing import Text
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap
@@ -20,7 +19,6 @@ block = "Images/block"
 
 width = 800
 height = 600
-
 class Janela(QMainWindow):
     def __init__(self):
         super(Janela, self).__init__()
@@ -45,16 +43,14 @@ class Janela(QMainWindow):
         # >--Fim do texto---<
 
         # <--- Button --->
-        #cria o botão
-        self.btnpedra = QPushButton("Pedra", self)
-        #mover
-        self.btnpedra.move(270,90)
-        # se o botão for clicado (clicked) vai se conectar (connect) a uma (função)
-        self.btnpedra.clicked.connect(self.funpedra)
+        self.btnpedra = QPushButton("Pedra", self)#cria o botão
+        self.btnpedra.move(270,90)#mover
+        self.btnpedra.clicked.connect(self.funpedra)# se o botão for clicado vai se conectar a uma (função)
 
         self.btnpapel = QPushButton("Papel", self)
         self.btnpapel.move(380,90)
         self.btnpapel.clicked.connect(self.funpapel)
+        self.btnpapel.clicked.connect(self.papel)
 
         self.btntesoura = QPushButton("Tesoura", self)
         self.btntesoura.move(490,90)
@@ -81,8 +77,38 @@ class Janela(QMainWindow):
         self.imageP2.setPixmap(self.pixp1)
         self.imageP2.move(500,200)
         self.imageP2.resize(200,200)
-        self.show()
 
+        #Maquina Stats
+        self.pontos = QLabel("Pontos: ",self)
+        self.pontos.move(100, 400)
+        self.pontos.resize(100,30)
+
+        self.ganhos = QLabel("Ganhos: ",self)
+        self.ganhos.move(100, 410)
+        self.ganhos.resize(100,30)
+
+        self.winconsecs = QLabel("Ganhos Consecutivos: ",self)
+        self.winconsecs.move(100, 420)
+        self.winconsecs.resize(105,30)
+
+        self.empate = QLabel("Empates: ",self)
+        self.empate.move(100, 430)
+        self.empate.resize(100,30)
+
+        #Player Stats
+        self.P1pontos = QLabel("Pontos: ",self)
+        self.P1pontos.move(500, 400)
+        self.P1pontos.resize(100,30)
+
+        self.P1ganhos = QLabel("Ganhos: ",self)
+        self.P1ganhos.move(500, 410)
+        self.P1ganhos.resize(100,30)
+
+        self.P1winconsecs = QLabel("Ganhos Consecutivos: ",self)
+        self.P1winconsecs.move(500, 420)
+        self.P1winconsecs.resize(105,30)
+
+        self.show()
         # >>Style<<
 
         ##Button Confirm##
@@ -96,27 +122,6 @@ class Janela(QMainWindow):
         self.show()
     
     #!@ Funções @!
-    def click(self):
-
-        maquinanumero = ["0", "1", "2"]
-        escolhaar = random.choice(maquinanumero)
-
-        if escolhaar == "0":
-            self.machinfuntesoura()
-        if escolhaar == "1":
-            self.machinfunpedra()
-        if escolhaar == "2":
-            self.machinfunpapel()
-        
-        playernum = ["0", "1", "2"]
-        playchoce = random.choice(playernum)
-
-        if playchoce == "0":
-            self.funtesoura()
-        if playchoce == "1":
-            self.funpedra()
-        if playchoce == "2":
-            self.funpapel()
 
     def machinfuntesoura(self):
         self.imageP1.setPixmap(QPixmap(tesoura))
@@ -126,6 +131,7 @@ class Janela(QMainWindow):
 
     def machinfunpapel(self):
         self.imageP1.setPixmap(QPixmap(papel))
+        self.machinpapel()
 
 
     def funtesoura(self):
@@ -167,6 +173,17 @@ class Janela(QMainWindow):
         if escolhaar == "2":
             self.machinfunpapel()
 
+    def papel(self):
+        self.twa = print("Papel entrou")
+    
+    def machinpapel(self):
+        self.v = print("Papel MAQUINA entrou")
+    
+    def empate(self):
+
+        if self.machinpapel + self.papel:
+            print("EMPATE")
+                 
 
 # cor da janela em (CSS)
 df = """
