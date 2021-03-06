@@ -130,10 +130,42 @@ class Janela(QMainWindow):
 
     def funtesoura(self):
         self.imageP2.setPixmap(QPixmap(tesoura))
+
+        maquinanumero = ["0", "1", "2"]
+        escolhaar = random.choice(maquinanumero)
+
+        if escolhaar == "0":
+            self.machinfuntesoura()
+        if escolhaar == "1":
+            self.machinfunpedra()
+        if escolhaar == "2":
+            self.machinfunpapel()
+
     def funpedra(self):
         self.imageP2.setPixmap(QPixmap(pedra))
+
+        maquinanumero = ["0", "1", "2"]
+        escolhaar = random.choice(maquinanumero)
+
+        if escolhaar == "0":
+            self.machinfuntesoura()
+        if escolhaar == "1":
+            self.machinfunpedra()
+        if escolhaar == "2":
+            self.machinfunpapel()
+
     def funpapel(self):
         self.imageP2.setPixmap(QPixmap(papel))
+
+        maquinanumero = ["0", "1", "2"]
+        escolhaar = random.choice(maquinanumero)
+
+        if escolhaar == "0":
+            self.machinfuntesoura()
+        if escolhaar == "1":
+            self.machinfunpedra()
+        if escolhaar == "2":
+            self.machinfunpapel()
 
 
 # cor da janela em (CSS)
