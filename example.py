@@ -25,6 +25,8 @@ class Janela(QMainWindow):
     def __init__(self):
         super(Janela, self).__init__()
 
+        self.empates = 0
+
         #<!>Main<!>#
         #Titulo da janela
         self.setWindowTitle("Example")
@@ -44,14 +46,14 @@ class Janela(QMainWindow):
         # <--- Button --->
         
         self.btnpedra = QPushButton("Pedra", self)#cria o botão
-        
         self.btnpedra.move(270,90)#mover
-        
         self.btnpedra.clicked.connect(self.funpedra)# se o botão for clicado vai se conectar a uma (função)
+
 
         self.btnpapel = QPushButton("Papel", self)
         self.btnpapel.move(380,90)
         self.btnpapel.clicked.connect(self.funpapel)
+
 
         self.btntesoura = QPushButton("Tesoura", self)
         self.btntesoura.move(490,90)
@@ -78,7 +80,22 @@ class Janela(QMainWindow):
         self.imageP2.setPixmap(self.pixp1)
         self.imageP2.move(500,200)
         self.imageP2.resize(200,200)
-        self.show()
+
+        self.pontos1 = QLabel("Pontos: ", self)
+        self.pontos1.move(90,400)
+        self.pontos1.resize(200,30)
+
+        self.ganhos1 = QLabel("Ganhos: ", self)
+        self.ganhos1.move(90,410)
+        self.ganhos1.resize(200,30)
+
+        self.ganhoscons1 = QLabel("Ganhos consecutivos: ", self)
+        self.ganhoscons1.move(90,420)
+        self.ganhoscons1.resize(200,30)
+
+        self.empate = QLabel(f"Empate: {self.empates}", self)
+        self.empate.move(350,430)
+        self.empate.resize(200,30)
 
         # >>Style<<
 
@@ -150,6 +167,9 @@ class Janela(QMainWindow):
     
     def empatepapel(self):
         print("empate PAPEL")
+
+        self.empates = self.empates + 1
+        self.empate.setText(f"Empate: {self.empates}")
 
     def empatepedra(self):
         print("empate PEDRA")
