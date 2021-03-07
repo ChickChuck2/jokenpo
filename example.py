@@ -81,6 +81,8 @@ class Janela(QMainWindow):
         self.imageP2.move(500,200)
         self.imageP2.resize(200,200)
 
+
+        #MAQUINA 
         self.pontos1 = QLabel("Pontos: ", self)
         self.pontos1.move(90,400)
         self.pontos1.resize(200,30)
@@ -96,6 +98,19 @@ class Janela(QMainWindow):
         self.empate = QLabel(f"Empate: {self.empates}", self)
         self.empate.move(350,430)
         self.empate.resize(200,30)
+
+        #Player 
+        self.pontos2 = QLabel("Pontos: ", self)
+        self.pontos2.move(500,400)
+        self.pontos2.resize(200,30)
+
+        self.ganhos2 = QLabel("Ganhos: ", self)
+        self.ganhos2.move(500,410)
+        self.ganhos2.resize(200,30)
+
+        self.ganhoscons2 = QLabel("Ganhos consecutivos: ", self)
+        self.ganhoscons2.move(500,420)
+        self.ganhoscons2.resize(200,30)
 
         # >>Style<<
 
