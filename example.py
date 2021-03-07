@@ -34,23 +34,20 @@ class Janela(QMainWindow):
         self.setGeometry(0,0,width,height)
 
         # <--- Text --->
-        #cria o texto (QLabel é texto)
-        self.texto1 = QLabel("Pedra papel ou tesourinha", self)
-        #posição
-        self.texto1.move(325,60)
-        #redimencionamento
-        self.texto1.resize(200,30)
-        #alinhamento
-        self.texto1.setAlignment(Qt.AlignLeft)
+        
+        self.texto1 = QLabel("Pedra papel ou tesourinha", self)#cria o texto (QLabel é texto)
+        self.texto1.move(325,60)#posição
+        self.texto1.resize(200,30)#redimencionamento
+        self.texto1.setAlignment(Qt.AlignLeft)#alinhamento
         # >--Fim do texto---<
 
         # <--- Button --->
-        #cria o botão
-        self.btnpedra = QPushButton("Pedra", self)
-        #mover
-        self.btnpedra.move(270,90)
-        # se o botão for clicado (clicked) vai se conectar (connect) a uma (função)
-        self.btnpedra.clicked.connect(self.funpedra)
+        
+        self.btnpedra = QPushButton("Pedra", self)#cria o botão
+        
+        self.btnpedra.move(270,90)#mover
+        
+        self.btnpedra.clicked.connect(self.funpedra)# se o botão for clicado vai se conectar a uma (função)
 
         self.btnpapel = QPushButton("Papel", self)
         self.btnpapel.move(380,90)
@@ -96,28 +93,6 @@ class Janela(QMainWindow):
         self.show()
     
     #!@ Funções @!
-    def click(self):
-
-        maquinanumero = ["0", "1", "2"]
-        escolhaar = random.choice(maquinanumero)
-
-        if escolhaar == "0":
-            self.machinfuntesoura()
-        if escolhaar == "1":
-            self.machinfunpedra()
-        if escolhaar == "2":
-            self.machinfunpapel()
-        
-        playernum = ["0", "1", "2"]
-        playchoce = random.choice(playernum)
-
-        if playchoce == "0":
-            self.funtesoura()
-        if playchoce == "1":
-            self.funpedra()
-        if playchoce == "2":
-            self.funpapel()
-
     def machinfuntesoura(self):
         self.imageP1.setPixmap(QPixmap(tesoura))
 
@@ -126,6 +101,7 @@ class Janela(QMainWindow):
 
     def machinfunpapel(self):
         self.imageP1.setPixmap(QPixmap(papel))
+        
 
 
     def funtesoura(self):
@@ -136,6 +112,7 @@ class Janela(QMainWindow):
 
         if escolhaar == "0":
             self.machinfuntesoura()
+            self.empatetesoura()
         if escolhaar == "1":
             self.machinfunpedra()
         if escolhaar == "2":
@@ -151,6 +128,7 @@ class Janela(QMainWindow):
             self.machinfuntesoura()
         if escolhaar == "1":
             self.machinfunpedra()
+            self.empatepedra()
         if escolhaar == "2":
             self.machinfunpapel()
 
@@ -162,12 +140,22 @@ class Janela(QMainWindow):
 
         if escolhaar == "0":
             self.machinfuntesoura()
+
         if escolhaar == "1":
             self.machinfunpedra()
+
         if escolhaar == "2":
             self.machinfunpapel()
+            self.empatepapel()
+    
+    def empatepapel(self):
+        print("empate PAPEL")
 
-
+    def empatepedra(self):
+        print("empate PEDRA")
+    
+    def empatetesoura(self):
+        print("EMPATE TESOURA")
 # cor da janela em (CSS)
 df = """
     Janela {
