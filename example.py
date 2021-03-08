@@ -29,6 +29,8 @@ class Janela(QMainWindow):
 
         self.pontosM1 = 0
 
+        self.pontosP1 = 0
+
         #<!>Main<!>#
         #Titulo da janela
         self.setWindowTitle("Example")
@@ -99,16 +101,16 @@ class Janela(QMainWindow):
         self.empate.move(350,430)
         self.empate.resize(200,30)
 
-        #Player 
-        self.pontos2 = QLabel("Pontos: ", self)
+        #Player SYSTEM
+        self.pontos2 = QLabel(f"Pontos: {self.pontosP1}", self)
         self.pontos2.move(500,400)
         self.pontos2.resize(200,30)
 
-        self.ganhos2 = QLabel("Ganhos: ", self)
+        self.ganhos2 = QLabel(f"Ganhos: ", self)
         self.ganhos2.move(500,410)
         self.ganhos2.resize(200,30)
 
-        self.ganhoscons2 = QLabel("Ganhos consecutivos: ", self)
+        self.ganhoscons2 = QLabel(f"Ganhos consecutivos: ", self)
         self.ganhoscons2.move(500,420)
         self.ganhoscons2.resize(200,30)
 
@@ -199,21 +201,25 @@ class Janela(QMainWindow):
             self.machinfunpapel()
             self.empatepapel()
     
-
+    #SISTEMA DE EMPATE
     def empatepapel(self):
         print("empate PAPEL")
 
         self.empates = self.empates + 1
         self.empate.setText(f"Empates: {self.empates}")
+    
     def empatepedra(self):
         print("empate PEDRA")
         self.empates = self.empates + 1
         self.empate.setText(f"Empates: {self.empates}")
+    
     def empatetesoura(self):
         print("EMPATE TESOURA")
         self.empates = self.empates + 1
         self.empate.setText(f"Empates: {self.empates}")
-    
+    #    FIM SISTEMA EMPATE
+
+    #SISTMA DE PONTOS MAQUINA
     def pontomachipapel(self):
         self.pontosM1 = self.pontosM1 + 1
         print("Pontos papel")
@@ -228,6 +234,23 @@ class Janela(QMainWindow):
         self.pontosM1 = self.pontosM1 + 1
         print("pontos pedra")
         self.pontos1.setText(f"Pontos: {self.pontosM1}")
+
+    #SISTEMA DE PONTOS PLAYER
+    def pontopapel(self):
+        self.pontosP1 = self.pontosP1 + 1
+        self.pontos2.setText(f"Pontos: {self.pontosP1}")
+        print("PONTO PAPEL")
+    
+    def pontopedra(self):
+        print("PONTO PEDRA")
+        self.pontosP1 = self.pontosP1 + 1
+        self.pontos2.setText(f"Pontos: {self.pontosP1}")
+    
+    def pontotesoura(self):
+        print("PONTO TESOURA")
+        self.pontosP1 = self.pontosP1 + 1
+        self.pontos2.setText(f"Pontos: {self.pontosP1}")
+    
 
 # cor da janela em (CSS)
 df = """
