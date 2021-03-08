@@ -125,17 +125,21 @@ class Janela(QMainWindow):
         self.show()
     
     #!@ Funções @!
+
+    #escolher maquina tesoura
     def machinfuntesoura(self):
         self.imageP1.setPixmap(QPixmap(tesoura))
-
+    
+    #escolher maquina pedra
     def machinfunpedra(self):
         self.imageP1.setPixmap(QPixmap(pedra))
 
+    #escolher maquina papel
     def machinfunpapel(self):
         self.imageP1.setPixmap(QPixmap(papel))
         
 
-
+    #player tesoura
     def funtesoura(self):
         self.imageP2.setPixmap(QPixmap(tesoura))
 
@@ -145,12 +149,17 @@ class Janela(QMainWindow):
         if escolhaar == "0":
             self.machinfuntesoura()
             self.empatetesoura()
+
         if escolhaar == "1":
             self.machinfunpedra()
+            self.pontomachipedra()
+
         if escolhaar == "2":
             self.machinfunpapel()
 
+    #player pedra
     def funpedra(self):
+
         self.imageP2.setPixmap(QPixmap(pedra))
 
         maquinanumero = ["0", "1", "2"]
@@ -158,24 +167,34 @@ class Janela(QMainWindow):
 
         if escolhaar == "0":
             self.machinfuntesoura()
+
         if escolhaar == "1":
             self.machinfunpedra()
             self.empatepedra()
+
         if escolhaar == "2":
             self.machinfunpapel()
+            self.pontomachipapel()
 
+    #player papel
     def funpapel(self):
+
+        #comando para setar a imagem de papel do player
         self.imageP2.setPixmap(QPixmap(papel))
 
         maquinanumero = ["0", "1", "2"]
         escolhaar = random.choice(maquinanumero)
 
+        #escolher maquina tesoura
         if escolhaar == "0":
             self.machinfuntesoura()
+            self.pontomachitesoura()
 
+        #escolher maquina pedra
         if escolhaar == "1":
             self.machinfunpedra()
 
+        #escolher maquina papel
         if escolhaar == "2":
             self.machinfunpapel()
             self.empatepapel()
@@ -195,14 +214,20 @@ class Janela(QMainWindow):
         self.empates = self.empates + 1
         self.empate.setText(f"Empates: {self.empates}")
     
-    def pontospedra(self):
-        print("Pontos pedra")
+    def pontomachipapel(self):
+        self.pontosM1 = self.pontosM1 + 1
+        print("Pontos papel")
+        self.pontos1.setText(f"Pontos: {self.pontosM1}")
     
-    def pontospapel(slef):
-        print("pontos papel")
+    def pontomachitesoura(self):
+        print("pontos tesoura")
+        self.pontosM1 = self.pontosM1 + 1
+        self.pontos1.setText(f"Pontos: {self.pontosM1}")
     
-    def pontostesoura(self):
-        print("Buceta")
+    def pontomachipedra(self):
+        self.pontosM1 = self.pontosM1 + 1
+        print("pontos pedra")
+        self.pontos1.setText(f"Pontos: {self.pontosM1}")
 
 # cor da janela em (CSS)
 df = """
@@ -225,4 +250,3 @@ if __name__ == "__main__":
 
     #Função para quando apertar no X pra sair
     sys.exit(app.exec_())
-
